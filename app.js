@@ -6,17 +6,13 @@ var routes = require('./routes/routes.js');
 var app = express();
 
 app.use(express.static(__dirname + "/public"));
-
-// ******* body-parser int
-// body-parser OLD Way
-//app.use(bodyparser());
-// body-parser New Way
+// body-parser 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
 //body parser init done
-
 //****** session
-app.use(session({secret: "secret",  resave : true,  saveUninitialized : false}));
+app.use(session({secret: "akhilasdasasa",  
+	resave : true,  saveUninitialized : false}));
  
 app.set('view engine', 'jade');
 

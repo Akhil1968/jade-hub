@@ -25,20 +25,28 @@ exports.landingPageHandler = function(req, res){
 exports.cityPageHandler = function(req, res){
 	var interestValue = req.body.interest;
 	var cityNameValue, taglineValue;
+	var famousfor = new Array();
 	console.log("received interestValue  as " + interestValue);
 
 
 	if (interestValue === 'history'){
 		cityNameValue = 'Rome';
 		taglineValue = 'City of earliest civilization';
+		famousfor = ["Colloseum", "Trevi Fountain"];
 	}else if (interestValue === 'fashion'){
 		cityNameValue = 'Paris';
 		taglineValue = 'Fashion capital of the world ';
+		famousfor = ["Eiffel Tower"];
 	}else if (interestValue === 'finance'){
 		cityNameValue = 'New York';
 		taglineValue = 'Business capital of the world ';
+		famousfor = ["Statue of Liberty", "Wall Street"];
 	}
 	
-	res.render('city.jade', {cityName:cityNameValue, 
-						tagline: taglineValue, person:req.session.userName});
+	res.render('city.jade', {
+						cityName:cityNameValue, 
+						tagline: taglineValue, 
+						person:req.session.userName,
+						FAMOUSFOR:famousfor
+					});
 }
